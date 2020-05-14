@@ -12,7 +12,7 @@
 
       <v-col class="mb-4">
         <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify
+          안녕 쀼 !!
         </h1>
 
         <p class="subheading font-weight-regular">
@@ -30,7 +30,7 @@
         cols="12"
       >
         <h2 class="headline font-weight-bold mb-3">
-          What's next?
+          이름이 뭐니 ?
         </h2>
 
         <v-row justify="center">
@@ -51,7 +51,7 @@
         cols="12"
       >
         <h2 class="headline font-weight-bold mb-3">
-          Important Links
+          챗봇?
         </h2>
 
         <v-row justify="center">
@@ -72,8 +72,7 @@
         cols="12"
       >
         <h2 class="headline font-weight-bold mb-3">
-          Ecosystem
-        </h2>
+          날씨가 좋네        </h2>
 
         <v-row justify="center">
           <a

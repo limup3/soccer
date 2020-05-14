@@ -16,6 +16,7 @@ public class PlayerController {
 
     @GetMapping("")
     public List<PlayerDTO> getlist(){
+
         return playerService.retrieveAll();
         
     }
