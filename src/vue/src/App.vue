@@ -14,7 +14,7 @@ export default {
   name: 'App',
 
   components: {
-    Home,
+    Home, // root components
   },
 
   data: () => ({

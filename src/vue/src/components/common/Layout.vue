@@ -1,16 +1,20 @@
 <template>
     <div id="wrapper">
         <header>
-            <slot name="header" v-bind:title="header"></slot>
+            <slot name="header"
+                  :header="header"
+                  :login="login"
+                  :join="join"></slot>
         </header>
         <aside id="sidebar">
-
+            <slot name="sidebar"></slot>
         </aside>
         <section id="content">
+            <slot name="content" :content="content"></slot>
 
         </section>
         <footer>
-
+            <slot name="footer" :footer="footer"></slot>
         </footer>
     </div>
 </template>
@@ -20,7 +24,11 @@
         name: "Layout",
         data : () => {
             return {
-                header: "헤더"
+                header : '축구정보 시스템',
+                login : '로그인',
+                join : '회원가입',
+                content : '축구 경기 일정 검색',
+                footer : '(사)축구선수협회',
             }
         }
     }
