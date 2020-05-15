@@ -2,7 +2,7 @@
     <div id = "app">
         <Layout>
             <template #header ="header">
-                <h1>{{header.header}}</h1>
+                <router-link to="/home"><h1 id="title">{{header.header}}</h1></router-link>
                 <router-link to="/join"><span id="join">{{header.join}}</span></router-link>
                 <router-link to="/login"><span id="login">{{header.login}}</span></router-link>
             </template>
@@ -14,12 +14,11 @@
                 </ul>
 
             </template>
-            <template #content ="content">
-                {{content.content}}
-                <router-view></router-view>
+            <template #content>
+                <router-view/>
             </template>
             <template #footer ="footer">
-                <h1>{{footer.footer}}</h1>
+                {{footer.footer}}
             </template>
         </Layout>
 

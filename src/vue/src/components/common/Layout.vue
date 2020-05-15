@@ -10,7 +10,7 @@
             <slot name="sidebar"></slot>
         </aside>
         <section id="content">
-            <slot name="content" :content="content"></slot>
+            <slot name="content"></slot>
 
         </section>
         <footer>
@@ -22,7 +22,7 @@
 <script>
     export default {
         name: "Layout",
-        data : () => {
+        data(){
             return {
                 header : '축구정보 시스템',
                 login : '로그인',

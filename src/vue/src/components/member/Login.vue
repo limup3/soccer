@@ -1,5 +1,5 @@
 <template>
-    <form action="/#" method="post">
+    <form method="post">
         <div class="imgcontainer">
             <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
         </div>
@@ -11,7 +11,7 @@
             <label><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" required>
 
-            <button @click="login" type="submit">Login</button>
+            <router-link to="/calculator"><button type="submit">Login</button></router-link>
             <label>
                 <input type="checkbox" checked="checked" name="remember"> Remember me
             </label>
