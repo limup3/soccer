@@ -10,4 +10,8 @@ import java.util.List;
 
 public interface PlayerMapper {
     public List<PlayerDTO> selectAll();
+
+    public PlayerDTO selectOne(String searchWord);
+
+    public PlayerDTO login(PlayerDTO params);
 }

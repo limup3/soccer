@@ -11,7 +11,7 @@
     nickname,
     join_yyyy joinYyyy,
     position,
-    back_NO backNo,
+    back_no backNo,
     nation,
     birth_Date birthDate,
     solar,
@@ -20,4 +20,42 @@
     team_id teamId
     from player
 </select>
+    <select id="selectOne" resultType="com.parksrazor.web.domains.PlayerDTO"
+                            parameterType="string">
+        select
+    player_id playerId,
+    player_name playerName,
+    e_player_name ePlayerName,
+    nickname,
+    join_yyyy joinYyyy,
+    position,
+    back_no backNo,
+    nation,
+    birth_Date birthDate,
+    solar,
+    height,
+    weight,
+    team_id teamId
+    from player
+    where player_id like #{value}
+    </select>
+    <select id="login" resultType="com.parksrazor.web.domains.PlayerDTO"
+                        parameterType="com.parksrazor.web.domains.PlayerDTO">
+        select
+    player_id playerId,
+    player_name playerName,
+    e_player_name ePlayerName,
+    nickname,
+    join_yyyy joinYyyy,
+    position,
+    back_no backNo,
+    nation,
+    birth_Date birthDate,
+    solar,
+    height,
+    weight,
+    team_id teamId
+    from player
+    where player_id like #{playerId} and back_no like #{backNo}
+    </select>
 </mapper>

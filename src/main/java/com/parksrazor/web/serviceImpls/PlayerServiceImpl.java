@@ -19,4 +19,14 @@ public class PlayerServiceImpl implements PlayerService {
     public List<PlayerDTO> retrieveAll() {
         return playerMapper.selectAll();
     }
+
+    @Override
+    public PlayerDTO findOne(String searchWord) {
+        return playerMapper.selectOne(searchWord);
+    }
+
+    @Override
+    public PlayerDTO login(PlayerDTO params) {
+        return playerMapper.login(params);
+    }
 }

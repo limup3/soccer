@@ -1,32 +1,59 @@
 <template>
     <div id = "app">
-        <Layout>
-            <template #header ="header">
-                <router-link to="/home"><h1 id="title">{{header.header}}</h1></router-link>
-                <router-link to="/join"><span id="join">{{header.join}}</span></router-link>
-                <router-link to="/login"><span id="login">{{header.login}}</span></router-link>
-            </template>
-            <template #sidebar>
-                <ul class="menu">
-                    <li v-for="i of sidebars" :key="i.menu">
-<!--                            <a @click="menu(i.menu)">{{i.menu}}</a>-->
-                        <router-link :to="{path:i.link}">{{i.menu}}</router-link>
-<!--                        <h3 v-if="i.menu ==='회원수'">-->
-<!--                            <router-link to="/counter">{{i.menu}}</router-link>-->
-<!--                        </h3>-->
-<!--                        <h3 v-else>{{i.menu}}</h3>-->
 
-                    </li>
-                </ul>
+        <div v-if=auth>
+            <Layout>
 
-            </template>
-            <template #content>
-                <router-view/>
-            </template>
-            <template #footer ="footer">
-                {{footer.footer}}
-            </template>
-        </Layout>
+                <template #header ="header">
+                    <router-link to="/home"><h1 class="title">{{header.header}}</h1></router-link>
+                    <router-link to="/mypage"><span class="join">{{header.mypage}}</span></router-link>
+                    <span @click="logout" class="login">{{header.logout}}</span>
+                </template>
+
+                <template #sidebar>
+                    <ul class="menu">
+                        <li v-for="i of sidebars" :key="i.menu">
+                            <!--                            <a @click="menu(i.menu)">{{i.menu}}</a>-->
+                            <router-link :to="{path:i.link}">{{i.menu}}</router-link>
+                            <!--                        <h3 v-if="i.menu ==='회원수'">-->
+                            <!--                            <router-link to="/counter">{{i.menu}}</router-link>-->
+                            <!--                        </h3>-->
+                            <!--                        <h3 v-else>{{i.menu}}</h3>-->
+
+                        </li>
+                    </ul>
+
+                </template>
+
+                <template #content>
+                    <router-view/>
+                </template>
+
+
+            </Layout>
+
+            </div>
+
+
+            <!--            로그인 성공 화면-->
+        <div v-else>
+            <Layout>
+                <template #header ="header">
+                    <router-link to="/home"><h1 class="title">{{header.header}}</h1></router-link>
+                    <router-link to="/join"><span class="join">{{header.join}}</span></router-link>
+                    <router-link to="/login"><span class="login">{{header.login}}</span></router-link>
+                </template>
+                <template #sidebar>
+                    <ul class="menu">
+                        <h3>광고판</h3>
+                    </ul>
+                </template>
+                <template #content>
+                    <router-view/>
+                </template>
+            </Layout>
+
+            </div>
 
     </div>
 </template>
@@ -34,7 +61,16 @@
 <script>
 //import Layout  from "./common/Layout";
 import Layout from "../components/common/Layout.vue"
+import {mapState} from "vuex";
     export default {
+        computed : {
+            ...mapState(
+                {
+                    auth : state => state.player.auth
+                }
+            )
+
+        },
         components : {Layout},
         data : ()=>{
             return {
@@ -49,6 +85,13 @@ import Layout from "../components/common/Layout.vue"
 
             }
         },
+        methods:{
+            logout(){
+                this.$store.dispatch('player/logout')
+            }
+        }
+
+
         // methods:{
         //     menu(i){
         //         switch (i) {
@@ -83,8 +126,8 @@ import Layout from "../components/common/Layout.vue"
         list-style: none;
         font-style: italic;
     }
-    #title{width: 300px;margin: 0 auto}
-    #login{margin-right: 50px; float: right}
-    #join{margin-right: 50px; float: right}
-    #footer{width: 300px; margin: 0 auto}
+    .title{width: 300px;margin: 0 auto}
+    .login{margin-right: 50px; float: right}
+    .join{margin-right: 50px; float: right}
+    .footer{width: 300px; margin: 0 auto}
 </style>

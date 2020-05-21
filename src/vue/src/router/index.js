@@ -10,6 +10,8 @@ import Search from "../components/common/Search";
 import Update from "../components/common/Update";
 import Delete from "../components/common/Delete";
 import VuexCounter from "../components/common/VuexCounter";
+import Mypage from "../components/member/Mypage";
+import Logout from "../components/member/Logout";
 
 Vue.use(Router)
 export default new Router({
@@ -25,6 +27,8 @@ export default new Router({
         {path: '/search', component: Search},
         {path: '/update', component: Update},
         {path: '/delete', component: Delete},
+        {path: '/mypage', component: Mypage},
+        {path: '/logout', component: Logout},
 
     ]
 

@@ -10,8 +10,8 @@
             <input type="text" @keyup.enter="moveToPasswd" v-model="userid" placeholder="Enter Username" name="userid" required>
             <h3>입력한 아이디 : {{userid}}</h3>
             <label><b>Password</b></label>
-            <input type="password" @keyup.enter="login" id="passwd" v-model="password" placeholder="Enter Password" name="password" required>
-            <h3>입력한 비밀번호 : {{password}}</h3>
+            <input type="password" @keyup.enter="login" id="passwd" v-model="passwd" placeholder="Enter Password" name="password" required>
+            <h3>입력한 비밀번호 : {{passwd}}</h3>
             <button @click="login">Login</button>
             <label>
                 <input type="checkbox" checked="checked" name="remember"> Remember me
@@ -26,24 +26,35 @@
 </template>
 
 <script>
-
+    import {mapState} from 'vuex'
     export default { //export = return
 
-        data () {
-          return  {
-              userid : '',
-              password : ''
-          }
+            computed : {
+                ...mapState(
+                    {fail: state => state.player.fail,
+                        auth : state => state.player.auth
+                    }
+                )
+
         },
+        data () {
+            return  {
+                userid : '',
+                passwd : ''
+            }
+        }
+       ,
 
 
         methods: {
+            login(){
+                alert('유저 아이디:'+this.userid)
+                this.$store.dispatch('player/login',{playerId: '2000003', backNo: '40'})
+            },
             moveToPasswd(){
                 document.getElementById('passwd').focus()
-            },
-            login(){
-                alert('로그인')
             }
+
         }
     }
 </script>

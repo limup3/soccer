@@ -8,4 +8,8 @@ import java.util.List;
 @Component
 public interface PlayerService {
     public List<PlayerDTO> retrieveAll();
+
+    public PlayerDTO findOne(String searchWord);
+
+    public PlayerDTO login(PlayerDTO params);
 }
